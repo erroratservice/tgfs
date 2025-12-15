@@ -1,7 +1,7 @@
 FROM python:3.12
 WORKDIR /app
 COPY . .
-RUN uv venv --system-site-packages
+RUN python3 -m venv venv
 COPY requirements.txt .
-RUN uv pip install --no-cache-dir -r requirements.txt
+RUN venv/bin/pip install --no-cache-dir -r requirements.txtt
 CMD ["/bin/sh", "start.sh"]
